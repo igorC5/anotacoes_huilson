@@ -35,13 +35,18 @@ se (acordaTarde) entao {
 }
 
 saldo -= 15 // frete das compsaldos
+verificaSaldo(15)
 
 se (saldo >= 20) entao {
     saldo -= 20 // bom almoco
-    verificaSaldo(20)
     almocou = true
+    if (saldo < 0) entao {
+        almocou = false
+    }
+    verificaSaldo(20)
 } senao {
     saldo -= 5 // pastel
+    verificaSaldo(5)
 }
 
 se (saldo > 100 || saldo <= 20) entao {
